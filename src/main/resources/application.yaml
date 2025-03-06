@@ -1,0 +1,57 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: exchange-api
+  config:
+    import: optional:file:.env[.properties]
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/user
+
+resilience4j:
+  ratelimiter:
+    instances:
+      basic:
+        limit-for-period: 10
+        limit-refresh-period: 1m
+        timeout-duration: 10s
+
+exchange-api:
+  api-url: https://open.er-api.com/v6/latest/
+  api-key: your-api-key
+  api-call-limit: 60
+  cache-name: exchanges
+  cache-ttl: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
+jwt:
+  secretKey: ecf1222c-88fd-47f3-988f-bdd78bade1ad
+
+cache:
+  eviction:
+  cron-expression: 30 1 * * *
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    com.example: DEBUG
+
