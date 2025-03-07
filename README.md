@@ -8,7 +8,7 @@ This is a currency exchange service application that calculates the payable amou
 - **Maven**
 - **MongoDB**
 - **Exchange Rate API Key** (for fetching real-time currency exchange rates)
-
+![$5 Discount for Every $100 on the Bill.png](screenshots%2F%245%20Discount%20for%20Every%20%24100%20on%20the%20Bill.png)
 ## Features
 - **Bill Calculation**: Accepts bill details and calculates the net payable amount after applying discounts.
 - **Currency Conversion**: Converts the final payable amount to the target currency using real-time exchange rates.
